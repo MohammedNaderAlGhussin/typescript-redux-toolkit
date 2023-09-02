@@ -14,13 +14,13 @@ const store = configureStore({
   export type AppDispatch = typeof store.dispatch;
   export const useAppDispatch: () => AppDispatch = useDispatch;
 
-  export type AppSelector = typeof store.getState;
-  export const useAppSelector: TypedUseSelectorHook<ReturnType<AppSelector>> =
+  export type RootState = ReturnType<typeof store.getState>;
+  export const useAppSelector: TypedUseSelectorHook<RootState> =
     useSelector;
 
   Or we can use it in a single line :
 */
-
+export type RootState = ReturnType<typeof store.getState>;
 export const useAppDispatch: () => typeof store.dispatch = useDispatch;
 
 export const useAppSelector: TypedUseSelectorHook<
